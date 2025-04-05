@@ -5,7 +5,11 @@ const addDom = (mesDom)=>{
     const getMes = ()=>chat[mesDom.getAttribute('mesid')];
     if (mesDom.querySelector('.stus--btn')) return;
     let counter;
-    const updateCounter = ()=>counter.textContent = `${(getMes().swipe_id ?? 0) + 1}/${getMes().swipes?.length ?? 1}`;
+    const updateCounter = ()=>{
+        const text = `${(getMes().swipe_id ?? 0) + 1}/${getMes().swipes?.length ?? 1}`;
+        if (counter.textContent == text) return;
+        counter.textContent = text;
+    };
     const btnLeft = document.createElement('div'); {
         btnLeft.classList.add('stus--btn');
         btnLeft.classList.add('swipe_left');
