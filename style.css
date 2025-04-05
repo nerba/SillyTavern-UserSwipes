@@ -11,6 +11,10 @@
 		&:has(+.last_mes) .mesAvatarWrapper {
 			padding-bottom: var(--avatar-base-height);
 		}
+        .stus--btn > .stus--counter {
+            display: flex !important;
+            visibility: visible;
+        }
 	}
 	&[is_user="false"][is_system="false"] {
 		.stus--btn {
