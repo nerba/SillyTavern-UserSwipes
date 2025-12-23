@@ -9,7 +9,7 @@ Enable swiping on user messages (last or second to last message in chat).
 **[24/12/2025]** merry crisis eve
 
 - ST's latest staging broke userswipes for me (on docker)
-- so ~~i, me, the user~~ claude yoinked some stuff from MFC/more flexible continues (since it survived staging updates!)
+- so ~~i, me, the user~~ claude yoinked some stuff from [MFC/more flexible continues](https://github.com/LenAnderson/SillyTavern-MoreFlexibleContinues/) (since it survived staging updates!)
 - the fix is coded by claude ('vibecode' feels like the wrong term when all i do is paste back console logs)
 - idk how long this fix will be compatible with staging. hopefully for a few months...
 - this could have been a PR but it's... fully ai-coded and i think it might have changed too muhc stuff?? and idk enough about pr etiquette regarding these things
