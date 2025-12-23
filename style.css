@@ -8,12 +8,12 @@
 /* Position to bottom-right */
 .stus--quickActions[data-stus--anchor="bottom"] {
     position: absolute;
-    bottom: 0.125em;
-    right: 0.5em;
+    bottom: 0.5em;
+    right: 1em;
     z-index: 100;
 }
 
-/* Our controls container */
+/* STUS navigation/controls container */
 .stus--controls {
     display: flex;
     align-items: center;
@@ -47,31 +47,31 @@
 
 /* === VISIBILITY RULES === */
 
-/* Hide our controls by default on ALL messages */
+/* Hide STUS controls by default on ALL messages */
 .stus--controls {
     display: none;
 }
 
-/* Show our controls for: user messages */
+/* Show STUS controls for: user messages */
 #chat .mes[is_user="true"] .stus--controls {
     display: flex !important;
 }
 
-/* Show our controls for: system messages (includes hidden char messages) */
+/* Show STUS controls for: system messages (includes hidden char messages) */
 #chat .mes[is_system="true"] .stus--controls {
     display: flex !important;
 }
 
-/* === HIDE ST's NATIVE SWIPES when we take over === */
+/* === HIDE ST's NATIVE SWIPE CONTROLS when STUS take over(just in case of conflicts) === */
 
-/* On user messages - hide ST's swipes, show ours */
+/* On user messages - hide ST's swipes, show STUS */
 #chat .mes[is_user="true"] .swipe_left:not(.stus--action),
 #chat .mes[is_user="true"] .swipe_right:not(.stus--action),
 #chat .mes[is_user="true"] .swipeRightBlock > .swipes-counter {
     display: none !important;
 }
 
-/* On hidden/system messages - hide ST's swipes, show ours */
+/* On hidden/system messages - hide ST's swipe buttons, show STUS buttons */
 #chat .mes[is_system="true"] .swipe_left:not(.stus--action),
 #chat .mes[is_system="true"] .swipe_right:not(.stus--action),
 #chat .mes[is_system="true"] .swipeRightBlock > .swipes-counter {
@@ -87,7 +87,7 @@
 
 /* === NORMAL CHARACTER MESSAGES === */
 
-/* Ensure normal character messages keep ST's native swipes */
+/* Ensure normal character messages keep ST's native swipe controls */
 #chat .mes[is_user="false"][is_system="false"] .stus--controls {
     display: none !important;
 }
