@@ -52,7 +52,7 @@ const injectQuickActionsWrapper = () => {
     return [wrapTop, wrapBottom];
 };
 
-// Step 2: Build our swipe controls
+// Step 2: Build STUS swipe controls
 const buildSwipeControls = (anchor) => {
     const container = document.createElement('div');
     container.classList.add('stus--controls');
@@ -95,7 +95,7 @@ const activateSwipes = (mesDom) => {
 
     const mesId = mesDom.getAttribute('mesid');
 
-    // Use our new check function
+    // Use the new check function
     if (!shouldHaveManualSwipes(mesDom)) return;
 
     // Check if already activated
@@ -105,14 +105,14 @@ const activateSwipes = (mesDom) => {
     const getMes = () => chat[mesId];
     if (!getMes()) return;
 
-    // Find our injection point
+    // Find STUS injection point
     const bottomActions = mesDom.querySelector('.stus--quickActions[data-stus--anchor="bottom"]');
     if (!bottomActions) {
         log(`No action container found for message ${mesId}`);
         return;
     }
 
-    // Check if our controls already exist, if not add them
+    // Check if STUS swipe controls already exist, if not add them
     let controls = bottomActions.querySelector('.stus--controls');
     if (!controls) {
         controls = buildSwipeControls('bottom');
