@@ -15,6 +15,6 @@ Enable swiping on user messages (last or second to last message in chat).
 - this could have been a PR but it's... fully ai-coded and i think it might have changed too muhc stuff?? and idk enough about pr etiquette regarding these things
 
 **known bugs:**
-- sometimes it removes swipe navigation buttons (? why? T_T) from character messages. i have no idea why or how to reproduce it. maybe it's just a slow browser thing. it doesn't annoy me often enough (for now) so i just sigh and reload the page
+- sometimes it removes swipe navigation buttons (? why? T_T) from character messages. i have no idea why, or how to reproduce it reliably. maybe it's just a slow browser thing. it doesn't annoy me often enough (for now) so i just sigh and reload the page
 - hide character message -> swipe right -> edit message (or not) -> unhide: results in st's native swipe counter 'freezing' visually. it's visually confusing, but just swipe on the message (with ST's native swipe btns) and the counter will update
    - if you're at the newest/latest swipe and then you swipe right, obviously ST will try to generate a message (this phrasing is incorrect, but i hope you get the gist), so if i just want to update the counter i usually swipe left
