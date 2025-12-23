@@ -1,24 +1,107 @@
-#chat .mes {
-	&[is_user="true"], &[is_system="true"] {
-		.swipe_left, .swipe_right {
-			&:not(.stus--btn) {
-				display: none;
-			}
-		}
-		&:not(&:has(+.last_mes)):not(.last_mes) .stus--btn {
-			display: none;
-		}
-		&:has(+.last_mes) .mesAvatarWrapper {
-			padding-bottom: var(--avatar-base-height);
-		}
-        .stus--btn > .stus--counter {
-            display: flex !important;
-            visibility: visible;
-        }
-	}
-	&[is_user="false"][is_system="false"] {
-		.stus--btn {
-			display: none;
-		}
-	}
+/* Container positioning */
+.stus--quickActions {
+    display: flex;
+    gap: 0.25em;
+    align-items: baseline;
+}
+
+/* Position to bottom-right */
+.stus--quickActions[data-stus--anchor="bottom"] {
+    position: absolute;
+    bottom: 0.125em;
+    right: 0.5em;
+    z-index: 100;
+}
+
+/* Our controls container */
+.stus--controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+/* Action buttons */
+.stus--action {
+    display: inline-block;
+    cursor: pointer;
+    width: 1.2em;
+    text-align: center;
+    opacity: 0.75;
+    color: var(--SmartThemeBodyColor, #ccc);
+    transition: opacity 0.2s;
+}
+
+.stus--action:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Counter */
+.stus--counter {
+    font-size: 0.8em;
+    opacity: 0.6;
+    min-width: 30px;
+    text-align: center;
+    color: var(--SmartThemeBodyColor, #ccc);
+}
+
+/* === VISIBILITY RULES === */
+
+/* Hide our controls by default on ALL messages */
+.stus--controls {
+    display: none;
+}
+
+/* Show our controls for: user messages */
+#chat .mes[is_user="true"] .stus--controls {
+    display: flex !important;
+}
+
+/* Show our controls for: system messages (includes hidden char messages) */
+#chat .mes[is_system="true"] .stus--controls {
+    display: flex !important;
+}
+
+/* === HIDE ST's NATIVE SWIPES when we take over === */
+
+/* On user messages - hide ST's swipes, show ours */
+#chat .mes[is_user="true"] .swipe_left:not(.stus--action),
+#chat .mes[is_user="true"] .swipe_right:not(.stus--action),
+#chat .mes[is_user="true"] .swipeRightBlock > .swipes-counter {
+    display: none !important;
+}
+
+/* On hidden/system messages - hide ST's swipes, show ours */
+#chat .mes[is_system="true"] .swipe_left:not(.stus--action),
+#chat .mes[is_system="true"] .swipe_right:not(.stus--action),
+#chat .mes[is_system="true"] .swipeRightBlock > .swipes-counter {
+    display: none !important;
+}
+
+/* But keep the swipeRightBlock container for layout */
+#chat .mes[is_user="true"] .swipeRightBlock,
+#chat .mes[is_system="true"] .swipeRightBlock {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+/* === NORMAL CHARACTER MESSAGES === */
+
+/* Ensure normal character messages keep ST's native swipes */
+#chat .mes[is_user="false"][is_system="false"] .stus--controls {
+    display: none !important;
+}
+
+/* Ensure MFC stays on the left */
+.lacommon--quickActions[data-lacommon--anchor="bottom"] {
+    left: 0.5em !important;
+}
+
+/* Optional: Subtle style for hidden message controls */
+#chat .mes[is_user="false"][is_system="true"] .stus--controls {
+    opacity: 0.6;
+}
+
+#chat .mes[is_user="false"][is_system="true"] .stus--controls:hover {
+    opacity: 1;
 }
